@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head><script src="./assets/boot.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cobalt 3D · учебный атлас и тренажёр</title>
+
+
+<link rel="stylesheet" href="./assets/interface.css">
+<link rel="stylesheet" href="./assets/lab.css">
+<link rel="stylesheet" href="./assets/layout.css">
+<link rel="stylesheet" href="./assets/readable.css">
+</head>
+<body>
+<div id="app">
+
+  <header id="topbar">
+    <button id="brandHome" aria-label="Открыть главную"><span class="brandMark">C</span><span><strong>COBALT<span class="brand3d">3D</span></strong><small>Главная</small></span></button>
+    <button id="headerSearch" class="headerSearch" aria-label="Найти деталь"><span data-icon="search"></span><span>Найти деталь</span><kbd>/</kbd></button>
+    <button id="learnOpen" class="learnButton" aria-label="Открыть обучение"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h7l2 2 2-2h7v15h-7l-2 2-2-2H3zM12 6v15"/></svg><span>Учиться</span></button>
+    <button id="progressBadge" title="Открыть учебный маршрут" aria-label="Прогресс и учебный маршрут"><span class="progressRing"></span><span><b id="progressCount">0</b><span class="progressSlash"> / <span id="progressTotal">0</span></span><small>изучено</small></span></button>
+    <button id="easyHelp" class="easyHeaderButton">Помощь</button><button id="easySettings" class="easyHeaderButton" aria-label="Размер текста и цвет фона">Текст</button>
+  </header>
+  <div id="main">
+    <div id="easyReaderBar" hidden><button id="easyReadBack">← К модели</button><button id="easyListen" hidden>Слушать текст</button><span id="easySpeechStatus" role="status" aria-live="polite"></span></div>
+    <div id="stage">
+      <header id="viewportHeader"><div id="sceneHeader"><span class="sceneEyebrow">ИССЛЕДУЙ УСТРОЙСТВО</span><h2 id="sceneTitle">Автомобиль</h2></div><div id="sceneActions"><button id="quickEngine" hidden><span data-icon="play"></span><span>Запустить двигатель</span></button><button id="quickShell" title="Изменить прозрачность кузова"><span data-icon="eye"></span><span>Кузов</span></button><button id="resetCamera" aria-label="Вернуть общий вид" title="Вернуть общий вид"><span data-icon="reset"></span><span>Сначала</span></button></div><div id="systemFocus" hidden><span id="systemFocusName"></span><button id="clearSystemFocus" aria-label="Показать все системы">×</button></div></header>
+      <div id="sceneViewport"><div id="canvasHost"></div>
+
+      <div id="systemLabels" aria-label="Узлы выбранной системы"></div>
+
+
+
+
+
+      <div id="modelLoading"><b>Chevrolet Cobalt LTZ</b><span id="loadStage" aria-live="polite">Подготовка 3D-модели…</span><small id="loadDetail">Облегчённая версия для телефона</small><a id="browserLink" href="./index.html" target="_blank" rel="noopener">Открыть сайт в новой вкладке</a><button id="retryLoad" hidden>Повторить загрузку</button></div>
+      <div id="modelNote">Модель Cobalt LTZ</div>
+      <div id="engineCycle" hidden>1-й цилиндр: Впуск · пауза</div><div id="selectedModelLabel" hidden></div>
+
+
+      <div id="legend"></div>
+      <button id="hoodToggle">Закрыть капот</button></div>
+      <footer id="workspaceToolbar"><div id="quickDock"><button id="catalogOpen"><span data-icon="layers"></span><span>Детали</span></button><button id="systemsOpen"><span data-icon="engine"></span><span>Системы</span></button><button id="toolsOpen"><span data-icon="sliders"></span><span>Вид</span></button></div><div id="hint">Вращай одним пальцем · приближай двумя</div><div id="zoomCtl">
+        <button id="zoomOut" aria-label="Уменьшить модель"><b>−</b><span>Меньше</span></button>
+        <button id="zoomIn" aria-label="Увеличить модель"><b>+</b><span>Больше</span></button>
+      </div></footer>
+<section id="homeScreen" hidden aria-label="Главная">
+        <div class="homeCopy"><span class="homeKicker"><i></i> ВИРТУАЛЬНАЯ ЛАБОРАТОРИЯ</span><h1>Изучаем устройство автомобиля</h1><p>Выберите, с чего начать. Кнопка «Помощь» всегда находится вверху.</p><div class="homeFacts"><span><b>94</b> узла</span><span><b>8</b> ситуаций</span><span><b>5</b> разделов маршрута</span></div></div>
+        <div class="homeModelStamp"><span>CHEVROLET</span><strong>COBALT II</strong><small>1.5 · B15D2 · FWD · 5MT</small></div>
+        <div class="homeBottom"><button id="homeExplore" class="homeExplore"><span>ПОСМОТРЕТЬ УСТРОЙСТВО</span><strong>Посмотреть машину <span>→</span></strong><small id="homeModelState">Подготавливаем модель…</small></button><button id="homeRoute" class="homeRoute"><span class="homeRouteTop"><span>ТВОЙ УЧЕБНЫЙ МАРШРУТ</span><b id="homeRouteCount">0 / 22</b></span><strong id="homeRouteTitle">С чего начать?</strong><small id="homeRouteHint">От работы двигателя до тормозов. Один понятный шаг за раз.</small><span class="homeRouteTrack"><i id="homeRouteFill"></i></span><span class="homeRouteLink">Учиться по шагам <span>→</span></span></button><div class="homeLinks"><button id="homeCases">Проверить неисправность <span>8 учебных ситуаций</span></button><button id="homeSaved">Сохранённые детали <span id="homeSavedCount">0 деталей ↗</span></button></div></div>
+      </section>
+    </div>
+
+    <section id="engineLab" aria-label="Управление четырьмя тактами" hidden>
+      <div class="enginePanelHeading"><div><span class="eyebrow">ДВИГАТЕЛЬ B15D2</span><h3>Четыре такта</h3></div><button id="engineCollapse" aria-label="Свернуть управление двигателем" aria-expanded="true">Свернуть</button></div>
+      <div class="enginePanelBody">
+        <div class="enginePlayback"><button id="engineTogglePlay" aria-label="Запустить анимацию двигателя"></button><div id="engineSpeedButtons" role="group" aria-label="Скорость анимации"><button data-speed="0.35" aria-pressed="false">0,35×</button><button data-speed="0.65" aria-pressed="false">0,65×</button><button data-speed="1" aria-pressed="true">1×</button></div><select id="engineSpeed" aria-label="Скорость анимации" hidden><option value="0.35">0,35×</option><option value="0.65">0,65×</option><option value="1" selected>1×</option></select></div>
+        <div class="engineLabHead"><span>ЦИЛИНДР 1</span><b id="engineAngle">0° / 720°</b></div><div id="strokeControls"></div><input id="cycleScrub" type="range" min="0" max="719" value="0" aria-label="Положение коленвала, градусы"><p id="strokeExplanation"></p>
+        <button id="engineContext" aria-pressed="false">Показать двигатель в автомобиле</button>
+      </div>
+    </section>
+    <section id="coachCard" aria-label="Учебное задание" hidden></section>
+    <button id="dockRestore" aria-expanded="false" hidden><span><small>ОПИСАНИЕ СВЁРНУТО</small><strong id="dockRestoreTitle"></strong></span><span>Развернуть ↑</span></button>
+
+    <div id="cutaway">
+      <div id="cutawayInner">
+        <h2>Разрез двигателя. Четыре такта работы</h2>
+        <div class="sub">Так работает бензиновый двигатель внутри блока цилиндров. Переключай такты и смотри, что в этот момент делают поршень, клапаны и коленвал.</div>
+        <div id="strokeBar"></div>
+        <div id="cutSvgWrap"></div>
+        <div class="cutLabelRow" id="cutLabels"></div>
+      </div>
+    </div>
+
+    <div id="panel" class="hidden" role="region" aria-label="Информация о детали">
+      <div id="panelEmpty">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Нажми на деталь в 3D-модели, чтобы увидеть, что она делает
+      </div>
+      <div id="panelBody">
+        <div id="panelHead" style="position:relative;">
+          <button id="panelCollapse" aria-label="Свернуть описание" aria-expanded="true">Свернуть</button><button id="panelClose" aria-label="Закрыть описание">Закрыть</button>
+          <div id="panelCat"><span class="dot"></span><span id="panelCatText"></span></div>
+          <div id="panelName"></div>
+        </div>
+        <div id="partQuickTools"><button id="bookmarkPart" aria-pressed="false">☆ В закладки</button><button id="inspectPart" aria-pressed="false">Рассмотреть отдельно</button></div>
+        <div id="tabbar"></div>
+        <div id="panelScroll"></div>
+        <div id="panelActions">
+          <button id="easyReadPart">Читать крупно</button>
+          <button id="showOnModelBtn">Показать крупнее</button>
+          <div id="studyBtn" role="button" tabindex="0">Отметить как изученное</div>
+        </div>
+      </div>
+    </div>
+  </div>
+<nav id="viewToggle" aria-label="Область автомобиля">
+ <button id="btn3d" class="active" aria-label="Весь автомобиль"><span data-icon="car"></span><span>Машина</span></button>
+ <button id="btnSchema" aria-label="Моторный отсек"><span data-icon="bonnet"></span><span>Под капотом</span></button>
+ <button id="btnCut" aria-label="Внутри двигателя"><span data-icon="engine"></span><span>Мотор</span></button>
+ <button id="btnUnder" aria-label="Посмотреть снизу"><span data-icon="under"></span><span>Снизу</span></button>
+ <button id="btnSalon" aria-label="Салон автомобиля"><span data-icon="seat"></span><span>Салон</span></button>
+</nav>
+</div>
+<div id="drawerBackdrop" hidden></div>
+<section id="searchWrap" class="utilityDrawer" role="dialog" aria-modal="true" aria-labelledby="catalogTitle" hidden>
+ <div class="drawerHead"><div><span class="eyebrow">КАТАЛОГ</span><h2 id="catalogTitle">Детали автомобиля</h2></div><button class="drawerClose" id="catalogClose" aria-label="Закрыть каталог"><span data-icon="close"></span></button></div>
+ <p class="drawerDescription">Введите название или выберите деталь из списка. Она появится на модели, и откроется описание.</p>
+ <div class="searchField"><span data-icon="search"></span><input id="searchInput" placeholder="Название детали или системы…" autocomplete="off" aria-label="Поиск детали"><button id="clearSearch" aria-label="Очистить поиск" hidden><span data-icon="close"></span></button></div>
+ <div id="catalogFilters" role="group" aria-label="Фильтр каталога"><button data-filter="all" aria-pressed="true">Все</button><button data-filter="saved" aria-pressed="false">Сохранено <span id="savedFilterCount">0</span></button><button data-filter="new" aria-pressed="false">Не изучено</button></div>
+ <select id="catalogSystem" aria-label="Система в каталоге"><option value="">Все системы</option></select><div id="catalogSummary" aria-live="polite"></div>
+</section>
+<section id="systemsDrawer" class="utilityDrawer" role="dialog" aria-modal="true" aria-labelledby="systemsTitle" hidden><div class="drawerHead"><div><span class="eyebrow">УСТРОЙСТВО АВТОМОБИЛЯ</span><h2 id="systemsTitle">Выбери систему</h2></div><button id="systemsClose" class="drawerClose" aria-label="Закрыть системы">×</button></div><p class="drawerDescription">Оставим нужные узлы на модели. Метки помогут найти каждый из них.</p><div id="systemCards" class="drawerScroll"></div></section>
+<section id="toolDrawer" class="utilityDrawer" role="dialog" aria-modal="true" aria-labelledby="toolsTitle" hidden>
+ <div class="drawerHead"><div><span class="eyebrow">ВИД И МЕХАНИЗМЫ</span><h2 id="toolsTitle">Инструменты</h2></div><button class="drawerClose" id="toolsClose" aria-label="Закрыть инструменты"><span data-icon="close"></span></button></div>
+ <div class="drawerScroll"><button id="learnFromTools" class="learnFromTools">Обучение и задания →</button><section class="toolSection"><h3>Управление моделью</h3><div id="realControls"><button id="realHood">Открыть капот</button><button id="realDoors">Открыть двери</button><button id="realShell">Скрыть кузов</button><button id="realHome">Общий вид</button><button id="enginePlay">Работа двигателя</button><button id="systemsColor">Цвета систем</button><button id="isolatePart" disabled>Только выбранная</button><button id="connectParts">Связи узлов</button></div></section>
+ <section class="toolSection"><h3>Рассмотреть отдельно</h3><div id="assemblyToolbar"><select id="partSelect" aria-label="Выбрать деталь"><option value="">Все детали автомобиля…</option></select><label>Разнести <input id="explodeRange" aria-label="Разнести детали" type="range" min="0" max="100" value="0"></label></div><p class="fieldHelp">Ползунок раздвигает узлы, чтобы увидеть их расположение.</p></section>
+ <section class="toolSection"><div class="sectionHead"><h3>Видимые системы</h3><button id="showAllSystems">Показать все</button></div><p class="fieldHelp">Нажми на систему, чтобы скрыть или вернуть её детали.</p><div id="chipbar"></div></section>
+ <details class="aboutModel"><summary>Как управлять моделью</summary><div class="controlHelp"><p><b>Телефон.</b> Один палец вращает модель. Два пальца меняют масштаб. Нажми на деталь, чтобы открыть описание.</p><p><b>Компьютер.</b> Зажми мышь для вращения. Колесо меняет масштаб. Клавиша / открывает поиск. Esc закрывает панель.</p><p><b>Клавиатура.</b> Выдели 3D-модель клавишей Tab. Стрелки вращают её, + и − меняют масштаб.</p><p>«Кузов» меняет прозрачность. «Системы» оставляет нужную группу узлов. «Вернуть общий вид» восстанавливает сборку и камеру.</p></div></details>
+ <details class="aboutModel"><summary>О модели и источниках</summary><div id="modelCredit"><span id="modelStatus">Загрузка GLB</span><br>Модель: <a href="https://sketchfab.com/3d-models/chevrolet-cobalt-ltz-6bbacfcb4c224acda978f5ee74554b58" target="_blank" rel="noopener">uzb_rx7</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a><br>Адаптация: облегчена геометрия, изменены материалы</div></details></div>
+</section>
+
+<section id="courseDrawer" class="utilityDrawer" role="dialog" aria-modal="true" aria-labelledby="courseTitle" hidden><div class="drawerHead"><div><span class="eyebrow">УЧЕБНЫЙ ЦЕНТР</span><h2 id="courseTitle">Обучение</h2></div><button id="courseClose" class="drawerClose" aria-label="Закрыть обучение">×</button></div><div id="courseContent" class="drawerScroll"></div></section>
+<section id="easyHelpDrawer" class="utilityDrawer easyDrawer" role="dialog" aria-modal="true" aria-labelledby="easyHelpTitle" hidden><div class="drawerHead"><h2 id="easyHelpTitle">Как пользоваться</h2><button id="easyHelpClose" class="drawerClose">Закрыть</button></div><div class="drawerScroll"><ol class="easySteps"><li><strong>Выберите часть машины</strong><p>Кнопки внизу: «Машина», «Под капотом», «Мотор», «Снизу» и «Салон».</p></li><li><strong>Выберите деталь</strong><p>Нажмите на неё на изображении. Или нажмите «Детали» и выберите название из списка.</p></li><li><strong>Прочитайте объяснение</strong><p>Кнопка «Читать крупно» открывает текст на весь экран. Кнопка «К модели» возвращает изображение.</p></li></ol><div class="easyHelpNote"><p><strong>Повернуть машину:</strong> ведите по изображению пальцем или зажатой мышью.</p><p><strong>Изменить размер:</strong> нажмите «Больше» или «Меньше».</p><p><strong>Начать заново:</strong> кнопка «Сначала» возвращает общий вид. Изученные детали сохраняются.</p></div><div class="easyActions"><button id="easyHelpCatalog" class="easyPrimary">Выбрать деталь из списка</button><button id="easyHelpLearn">Учиться по шагам</button><button id="easyHelpTools">Настройки модели</button><button id="easyHelpBack">Вернуться к машине</button></div></div></section>
+<section id="easySettingsDrawer" class="utilityDrawer easyDrawer" role="dialog" aria-modal="true" aria-labelledby="easySettingsTitle" hidden><div class="drawerHead"><h2 id="easySettingsTitle">Удобно читать</h2><button id="easySettingsClose" class="drawerClose">Закрыть</button></div><div class="drawerScroll"><fieldset><legend>Размер текста</legend><div class="easyChoices" id="easyFontChoices"><button data-size="normal" aria-pressed="true">Крупный</button><button data-size="large" aria-pressed="false">Ещё крупнее</button><button data-size="largest" aria-pressed="false">Самый крупный</button></div></fieldset><fieldset><legend>Цвет фона</legend><div class="easyChoices" id="easyThemeChoices"><button data-theme="light" aria-pressed="true">Светлый</button><button data-theme="dark" aria-pressed="false">Тёмный</button></div></fieldset><p id="easySettingsStatus" class="easyHelpNote" role="status">Настройки сохраняются на этом устройстве.</p><p>При самом крупном тексте страницу можно прокручивать. Для увеличения всей страницы можно использовать масштаб браузера. На самой модели жест двумя пальцами меняет размер машины.</p><button id="easySettingsDone" class="easyPrimary">Готово</button></div></section>
+<script src="./assets/vendor/three.r128.min.js"></script>
+<script src="./assets/vendor/GLTFLoader.r128.js"></script>
+<script src="./assets/catalog-data.js"></script>
+
+<script src="./assets/technical-data.js"></script>
+<script src="./assets/viewer-core.js"></script>
+<script src="./assets/vendor/fflate.umd.js"></script>
+
+<script src="./assets/model-loader.js"></script>
+<script src="./assets/unified-vehicle.js"></script>
+<script src="./assets/interface.js"></script>
+<script src="./assets/course-data.js"></script>
+<script src="./assets/course.js"></script>
+<script src="./assets/lab.js"></script>
+<script src="./assets/layout.js"></script>
+<script src="./assets/readable.js"></script>
+</body>
+</html>

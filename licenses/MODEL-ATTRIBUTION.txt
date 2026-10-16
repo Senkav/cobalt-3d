@@ -1,0 +1,16 @@
+Title: chevrolet Cobalt ltz
+Creator: uzb_rx7 / uzbek_supra
+Creator URL: https://sketchfab.com/uzbek_supra
+Source: https://sketchfab.com/3d-models/chevrolet-cobalt-ltz-6bbacfcb4c224acda978f5ee74554b58
+License recorded in the prepared GLB metadata: CC BY 4.0
+License URL: https://creativecommons.org/licenses/by/4.0/
+Legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Changes for this educational viewer:
+- Optimized geometry and removed duplicate wheels and collision hulls.
+- Quantized model data for a smaller download.
+- Adjusted materials at runtime and added body-part interactions.
+- Added separate illustrative mechanical assemblies.
+
+The imported body/interior model and the illustrative mechanisms have different
+origins. The mechanisms are educational approximations, not factory CAD data.

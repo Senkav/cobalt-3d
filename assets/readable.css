@@ -1,0 +1,275 @@
+/* Reading comes first. The 3D viewport keeps its own lighting and colours. */
+body.easyUI{--easy-surface:#fff;--easy-alt:#eef2f7;--easy-ink:#142333;--easy-muted:#40556b;--easy-line:#acbac9;--easy-primary:#164f7d;--easy-primary-ink:#fff;--easy-active:#fff0d8;--easy-active-ink:#4f3108;--easy-focus:#005a94;color-scheme:light;background:#eef2f7;color:var(--easy-ink);font-size:var(--read-size,18px)}
+body.easyUI[data-easy-theme=dark]{--easy-surface:#152335;--easy-alt:#22374d;--easy-ink:#f3f7ff;--easy-muted:#c0d0e3;--easy-line:#8298b0;--easy-primary:#f5b577;--easy-primary-ink:#1c293b;--easy-active:#483720;--easy-active-ink:#ffe1b2;--easy-focus:#ffd69b;color-scheme:dark;background:#101b29}
+.easyUI :is(button,input,select,summary,[role=button]){font-size:var(--ui-size,16px)!important;letter-spacing:normal!important;line-height:1.4!important}
+.easyUI :is(button,[role=button]){min-height:48px!important;white-space:normal;touch-action:manipulation;font-weight:600}
+.easyUI :is(button,select,summary) :is(span,small,strong){font-size:inherit!important;letter-spacing:normal!important}
+.easyUI :is(button,input,select,summary,[role=button]):focus-visible{outline:3px solid var(--easy-focus)!important;outline-offset:3px!important}
+.easyUI :is(button,input,select){border-radius:10px}
+.easyUI :is(.courseIntro,.courseMessage,.coachQuestion,.answerFeedback,.tabpane,.drawerDescription,.fieldHelp,.controlHelp,.speakerNotes,.sourceNote,.partSources,.profileTable,.historyCard p,.pathOverview p,.pathTopic,.pathCheck,.homeCopy p,.easyHelpNote,.easyDrawer p,.easyDrawer li,#strokeExplanation){font-size:var(--read-size,18px)!important;line-height:1.65!important;letter-spacing:normal!important;color:var(--easy-ink)!important}
+.easyUI :is(.eyebrow,.sceneEyebrow,.homeKicker,.homeRouteTop,.pathOverview>span){display:none!important}
+.easyUI :is(.drawerHead h2,#panelName,.coachHead h3,.enginePanelHeading h3){font-size:24px!important;line-height:1.3!important;letter-spacing:normal!important;color:var(--easy-ink)!important;font-weight:650}
+.easyUI :is(#topbar,#viewToggle,#viewportHeader,#workspaceToolbar){background:var(--easy-surface);border-color:var(--easy-line);color:var(--easy-ink)}
+.easyUI #topbar{height:72px;gap:8px;padding:7px 16px}
+.easyUI #brandHome{min-width:0;gap:8px;color:var(--easy-ink);flex:none}
+.easyUI #brandHome .brandMark{width:34px;height:34px;font-size:23px;border-radius:9px;background:#f4ad6e;color:#2d1a0c}
+.easyUI #brandHome strong{font-size:18px!important;letter-spacing:.7px!important}
+.easyUI #brandHome small{display:block!important;font-size:14px!important;color:var(--easy-muted);margin-top:2px}
+.easyUI .brand3d{display:none}
+.easyUI .headerSearch{background:var(--easy-alt);border:1px solid var(--easy-line);color:var(--easy-muted);max-width:300px}
+.easyUI .learnButton,.easyUI .easyHeaderButton{border:1px solid var(--easy-line);background:var(--easy-alt);color:var(--easy-ink);padding:8px 12px;border-radius:9px;white-space:nowrap;flex:none}
+.easyUI .learnButton{background:var(--easy-primary);color:var(--easy-primary-ink);border-color:var(--easy-primary)}
+.easyUI #easyHelp{margin-left:auto}
+.easyUI #progressBadge{display:none}
+.easyUI #viewportHeader{padding:8px 14px;gap:8px 10px;min-height:65px}
+.easyUI #viewportHeader #sceneTitle{font-size:20px!important;color:var(--easy-ink);font-weight:650;white-space:normal;overflow:visible}
+.easyUI #viewportHeader #sceneActions button{width:auto;min-width:62px;height:auto;gap:5px;padding:8px 10px;background:var(--easy-alt);color:var(--easy-ink);border:1px solid var(--easy-line)}
+.easyUI #viewportHeader #sceneActions svg{display:none}
+.easyUI #viewportHeader #quickShell{display:none!important}
+.easyUI #viewportHeader #systemFocus{background:var(--easy-alt);border-color:var(--easy-line);color:var(--easy-ink);font-size:var(--ui-size,16px);width:100%;line-height:1.5;padding:5px 7px}
+.easyUI #systemFocusName{white-space:normal;overflow:visible}
+.easyUI #viewportHeader #systemFocus button{width:auto;min-height:44px!important;padding:6px 9px;background:var(--easy-surface);color:var(--easy-ink);border:1px solid var(--easy-line)}
+.easyUI #workspaceToolbar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;padding:7px 9px}
+.easyUI #workspaceToolbar #quickDock,.easyUI #workspaceToolbar #zoomCtl{display:contents;border:0;padding:0}
+.easyUI #workspaceToolbar #quickDock button,.easyUI #workspaceToolbar #zoomCtl button{width:auto;height:auto;min-height:61px!important;background:var(--easy-alt);color:var(--easy-ink);border:1px solid var(--easy-line);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3px;padding:5px 3px;font-weight:600;line-height:1.3!important}
+.easyUI #workspaceToolbar #quickDock button:first-child{color:var(--easy-ink)}
+.easyUI #workspaceToolbar #quickDock svg{width:21px;height:21px}
+.easyUI #workspaceToolbar #toolsOpen,.easyUI #workspaceToolbar #hint{display:none!important}
+.easyUI #zoomCtl b{font-size:27px;line-height:1;font-weight:500}
+.easyUI #viewToggle{height:86px;gap:4px;padding:6px 10px max(6px,env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.easyUI #viewToggle button{min-width:0;min-height:68px!important;display:flex;flex-direction:column;gap:4px;padding:5px 3px;color:var(--easy-muted);border:2px solid transparent;border-radius:9px;line-height:1.25!important;white-space:normal}
+.easyUI #viewToggle button.active{background:var(--easy-active);color:var(--easy-active-ink);border-color:var(--easy-active-ink);box-shadow:none}
+.easyUI #viewToggle button.active svg{stroke:currentColor}
+.easyUI #viewToggle button svg{width:23px;height:23px}
+.easyUI .utilityDrawer{background:var(--easy-surface);color:var(--easy-ink);border:1px solid var(--easy-line);width:500px;max-width:calc(100vw - 24px)}
+.easyUI .drawerHead{gap:12px;padding:20px 20px 15px;border-bottom:1px solid var(--easy-line);margin-bottom:12px}
+.easyUI .drawerHead h2{margin:0;min-width:0;flex:1}
+.easyUI :is(.drawerClose,#clearSearch,#coachExit,#coachCollapse,#panelClose,#panelCollapse,#engineCollapse,.easyCoachRead){width:auto!important;height:auto!important;flex:none;min-width:70px;padding:8px 12px;background:var(--easy-alt);color:var(--easy-ink);border:1px solid var(--easy-line);border-radius:9px}
+.easyUI #drawerBackdrop{background:#080e1baa;backdrop-filter:none}
+.easyUI .drawerScroll{padding:0 20px 24px;scrollbar-color:var(--easy-muted) transparent}
+.easyUI .drawerDescription{padding-left:20px;padding-right:20px;margin-bottom:16px}
+.easyUI .searchField{height:auto;min-height:58px;background:var(--easy-alt);border:2px solid var(--easy-line);gap:7px;margin:0 16px 13px}
+.easyUI .searchField input{font-size:var(--read-size,18px)!important;color:var(--easy-ink);height:54px}
+.easyUI .searchField>span{color:var(--easy-muted)}
+.easyUI #clearSearch{min-width:70px;padding:7px}
+.easyUI #catalogFilters{padding:0 16px 12px;gap:6px;flex-wrap:wrap}
+.easyUI #catalogFilters button{background:var(--easy-alt);color:var(--easy-ink);border:1px solid var(--easy-line);flex:1;padding:8px}
+.easyUI #catalogFilters button[aria-pressed=true]{background:var(--easy-active);border:2px solid var(--easy-active-ink);color:var(--easy-active-ink)}
+.easyUI #catalogSystem,.easyUI #partSelect{background:var(--easy-alt);color:var(--easy-ink);border:1px solid var(--easy-line);min-height:54px;font-size:var(--read-size,18px)!important}
+.easyUI #catalogSummary{font-size:var(--ui-size,16px);padding:4px 20px 10px;color:var(--easy-muted)}
+.easyUI .searchGroupHead{font-size:var(--ui-size,16px);color:var(--easy-muted);background:var(--easy-surface);letter-spacing:normal;text-transform:none;padding:15px 12px 10px}
+.easyUI .searchGroupHead small{font-size:inherit}
+.easyUI button.searchRow{padding:14px 12px;min-height:62px!important;color:var(--easy-ink);border-bottom:1px solid var(--easy-line);border-radius:0;font-weight:500}
+.easyUI button.searchRow:hover{background:var(--easy-alt)}
+.easyUI .searchRow .tag{font-size:14px!important;color:var(--easy-muted);border-color:var(--easy-line)}
+.easyUI .searchRow .catalogMarks{color:var(--easy-active-ink);font-size:18px!important}
+.easyUI .searchEmpty{font-size:var(--read-size,18px);line-height:1.65;color:var(--easy-muted)}
+.easyUI :is(.courseTile,.pathChapter,.systemCard,.historyCard,.sourceCard){background:var(--easy-alt);border:1px solid var(--easy-line);color:var(--easy-ink);border-radius:11px;padding:16px;margin-bottom:10px}
+.easyUI :is(.courseTile,.pathChapter,.systemCard):hover{background:var(--easy-active);border-color:var(--easy-active-ink)}
+.easyUI :is(.courseTile,.pathChapter,.systemCard) strong{font-size:var(--read-size,18px)!important;color:var(--easy-ink);line-height:1.4!important}
+.easyUI :is(.courseTile,.pathChapter,.systemCard) small{font-size:var(--ui-size,16px)!important;color:var(--easy-muted);line-height:1.6!important;font-weight:400}
+.easyUI .tileIcon,.easyUI .tileArrow{color:var(--easy-primary)}
+.easyUI :is(.courseStats,.historyCard small,.historyCard strong,.sourceCard strong,.sourceCard small,.aboutModel,.aboutModel div,#modelCredit,#assemblyToolbar label,.profileTable dd,.profileTable dt,.pathChapter>b,.flowLegend){font-size:var(--ui-size,16px)!important;color:var(--easy-muted)!important;line-height:1.6!important}
+.easyUI :is(.courseActions button,.coachActions button,.reviewButton,.learnFromTools,#realControls button,.partLinks button,#easyReadEngine){background:var(--easy-alt);border:1px solid var(--easy-line);color:var(--easy-ink);padding:11px 13px;min-height:50px!important}
+.easyUI :is(.primaryAction,.easyPrimary,#easyReadPart,#studyBtn){background:var(--easy-primary)!important;color:var(--easy-primary-ink)!important;border:2px solid var(--easy-primary)!important;font-weight:650}
+.easyUI :is(.toolSection h3,.sectionHead h3,#courseContent h3){font-size:22px!important;color:var(--easy-ink)}
+.easyUI .toolSection{padding:20px 0;border-color:var(--easy-line)}
+.easyUI .sectionHead{align-items:center;gap:9px;flex-wrap:wrap}
+.easyUI .sectionHead button{padding:9px 12px;border:1px solid var(--easy-line);background:var(--easy-alt);color:var(--easy-ink)}
+.easyUI #realControls{gap:9px}
+.easyUI #chipbar{grid-template-columns:1fr;gap:8px}
+.easyUI .chip{font-size:var(--ui-size,16px)!important;color:var(--easy-ink)!important;background:var(--easy-surface);border:1px solid var(--easy-line);min-height:52px;opacity:1;padding:12px}
+.easyUI .chip.active{background:var(--easy-active);border:2px solid var(--easy-active-ink)}
+.easyUI .chip:after{content:'Скрыто';margin-left:auto;color:var(--easy-muted)}
+.easyUI .chip.active:after{content:'Показано';color:var(--easy-active-ink)}
+.easyUI :is(.aboutModel summary,.controlHelp){color:var(--easy-ink);font-size:var(--read-size,18px)!important;line-height:1.65}
+.easyUI :is(.sourceCard,.partSources a,.videoLink,#modelCredit a){color:var(--easy-primary)!important;text-decoration:underline;font-size:var(--ui-size,16px)!important;line-height:1.6}
+.easyUI :is(#main>#coachCard,#main>#panel,#main>#engineLab){background:var(--easy-surface);border-color:var(--easy-line);color:var(--easy-ink)}
+.easyUI #coachCard .coachHead{flex-wrap:wrap;align-items:center;padding:12px 15px;border-color:var(--easy-line)}
+.easyUI #coachCard .coachHead>div:first-child{flex:1 0 100%}
+.easyUI .coachHeadActions{display:flex;flex-wrap:wrap;width:100%;gap:6px}
+.easyUI .coachHeadActions button{flex:1;min-width:0;padding:8px 6px}
+.easyUI #coachContent{padding:14px 17px 22px;scrollbar-color:var(--easy-muted) transparent}
+.easyUI .coachProgress{height:6px;background:var(--easy-line)}
+.easyUI .coachProgress span{background:var(--easy-primary)}
+.easyUI .answerOptions{gap:10px}
+.easyUI .answerOptions button{background:var(--easy-alt);border:2px solid var(--easy-line);color:var(--easy-ink);padding:13px;min-height:58px!important;font-weight:500;line-height:1.6!important}
+.easyUI .answerOptions .correctAnswer{background:#d8efdf;border-color:#166033;color:#113b21;opacity:1}
+.easyUI .answerOptions .wrongAnswer{background:#fbe0e0;border-color:#8e2626;color:#591818;opacity:1}
+.easyUI .answerFeedback.correct{color:#185b32!important;font-weight:650}
+.easyUI .answerFeedback.wrong{color:#862525!important;font-weight:650}
+.easyUI[data-easy-theme=dark] .answerFeedback.correct{color:#a7efbd!important}
+.easyUI[data-easy-theme=dark] .answerFeedback.wrong{color:#ffc1c1!important}
+.easyUI .speakerNotes,.easyUI .pathCheck{background:var(--easy-alt);border:1px solid var(--easy-line);color:var(--easy-ink);padding:12px}
+.easyUI .speakerNotes summary,.easyUI .pathCheck summary{color:var(--easy-primary)}
+.easyUI #panelHead{padding:14px 16px;display:flex;align-items:center;gap:12px;border-color:var(--easy-line);min-height:0}
+.easyUI #panelName{flex:1;padding:0;min-width:0}
+.easyUI #panelCat,.easyUI #panelCollapse,.easyUI #tabbar,.easyUI #partQuickTools,.easyUI .easyTopicHeading{display:none!important}
+.easyUI #panelClose{position:static;min-width:78px}
+.easyUI #panelScroll{padding:17px;scrollbar-color:var(--easy-muted) transparent}
+.easyUI #panelActions{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px;border-color:var(--easy-line)}
+.easyUI #panelActions button{min-height:54px!important;padding:8px;background:var(--easy-alt);border:1px solid var(--easy-line);color:var(--easy-ink);font-size:var(--ui-size,16px)!important}
+.easyUI #studyBtn{display:none}
+.easyUI .sourceNote{border-left:3px solid var(--easy-primary);background:var(--easy-alt);border-radius:5px;padding:12px;font-weight:400}
+.easyUI .enginePanelHeading{padding:12px 15px;border-color:var(--easy-line);gap:10px}
+.easyUI .enginePanelBody{padding:15px 17px 20px}
+.easyUI .enginePlayback{flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.easyUI #engineTogglePlay{flex:1;background:var(--easy-primary);color:var(--easy-primary-ink);border-color:var(--easy-primary);padding:10px}
+.easyUI #engineSpeedButtons{background:var(--easy-alt);border:1px solid var(--easy-line);gap:3px;padding:3px}
+.easyUI #engineSpeedButtons button{padding:7px 10px;color:var(--easy-ink)}
+.easyUI #engineSpeedButtons button[aria-pressed=true]{background:var(--easy-primary);color:var(--easy-primary-ink)}
+.easyUI #engineLab .engineLabHead,.easyUI #engineLab .engineLabHead b{font-size:var(--ui-size,16px);color:var(--easy-muted);letter-spacing:normal}
+.easyUI #strokeControls{gap:7px;grid-template-columns:1fr 1fr}
+.easyUI #strokeControls button{min-height:52px!important;padding:9px;background:var(--easy-alt);color:var(--easy-ink);border:2px solid var(--easy-line)}
+.easyUI #strokeControls button[aria-pressed=true]{background:var(--easy-active);color:var(--easy-active-ink);border-color:var(--easy-active-ink);text-decoration:underline}
+.easyUI #strokeControls button span{display:none}
+.easyUI #cycleScrub{height:44px;margin:9px 0}
+.easyUI #engineLab #strokeExplanation{font-size:var(--read-size,18px)!important;color:var(--easy-ink);line-height:1.65}
+.easyUI #engineContext,.easyUI #easyReadEngine{min-height:50px!important;padding:12px;background:var(--easy-alt);color:var(--easy-ink);border:1px solid var(--easy-line);margin-top:10px;width:100%}
+.easyUI #dockRestore{background:var(--easy-alt);border-color:var(--easy-line);color:var(--easy-ink);min-height:64px!important}
+.easyUI #dockRestore small{display:none}
+.easyUI #dockRestore strong,.easyUI #dockRestore>span:last-child{font-size:var(--ui-size,16px);color:var(--easy-ink);white-space:normal}
+.easyUI #homeScreen{background:var(--easy-surface);pointer-events:auto;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:24px;padding:25px;overflow-y:auto}
+.easyUI .homeCopy{align-self:center;max-width:650px;width:100%}
+.easyUI .homeCopy h1{font-size:30px!important;letter-spacing:normal;line-height:1.25;margin:0 0 16px;color:var(--easy-ink)}
+.easyUI .homeCopy p{max-width:none;margin:0}
+.easyUI .homeFacts,.easyUI .homeModelStamp{display:none}
+.easyUI .homeBottom{display:flex;flex-direction:column;gap:13px;padding:0;margin:0;width:100%;max-width:650px}
+.easyUI .homeExplore,.easyUI .homeRoute,.easyUI .homeLinks{border-radius:11px;padding:18px;border:1px solid var(--easy-line);background:var(--easy-alt);color:var(--easy-ink);backdrop-filter:none;box-shadow:none;min-height:0}
+.easyUI .homeExplore{background:var(--easy-primary);color:var(--easy-primary-ink);border-color:var(--easy-primary)}
+.easyUI .homeExplore>span{display:none}
+.easyUI .homeExplore strong,.easyUI .homeRoute>strong{font-size:22px!important;margin:0;line-height:1.4}
+.easyUI .homeExplore small,.easyUI .homeRoute>small,.easyUI .homeRouteLink{display:block!important;font-size:var(--read-size,18px)!important;line-height:1.6;margin-top:10px;color:inherit;opacity:1;-webkit-line-clamp:unset}
+.easyUI .homeRouteTrack{height:6px;background:var(--easy-line)}
+.easyUI .homeRouteTrack i{background:var(--easy-primary)}
+.easyUI .homeLinks{padding:0;display:flex;flex-direction:column}
+.easyUI .homeLinks button{padding:18px;color:var(--easy-ink);display:block;text-align:left}
+.easyUI .homeLinks button+button{border-left:0;border-top:1px solid var(--easy-line)}
+.easyUI .homeLinks button span{display:block!important;color:var(--easy-muted);font-size:var(--ui-size,16px)!important;margin-top:7px}
+.easyUI .homeLinks button:hover{background:var(--easy-active)}
+.easyUI .easyDrawer h2{font-size:26px!important}
+.easyUI .easySteps{margin:8px 0 24px;padding-left:30px}
+.easyUI .easySteps li{padding-left:5px;margin-bottom:23px}
+.easyUI .easySteps li::marker{font-size:24px;font-weight:750;color:var(--easy-primary)}
+.easyUI .easySteps strong{font-size:22px;line-height:1.4;display:block}
+.easyUI .easySteps p{margin:10px 0 0}
+.easyUI .easyHelpNote{padding:15px;border:1px solid var(--easy-line);background:var(--easy-alt);border-radius:10px}
+.easyUI .easyHelpNote p{margin:0 0 14px}
+.easyUI .easyHelpNote p:last-child{margin-bottom:0}
+.easyUI .easyActions{display:grid;gap:10px;margin-top:20px}
+.easyUI .easyActions button,.easyUI #easySettingsDone{padding:14px;background:var(--easy-alt);color:var(--easy-ink);border:1px solid var(--easy-line);width:100%}
+.easyUI .easyDrawer fieldset{padding:0;border:0;margin:14px 0 26px;min-width:0}
+.easyUI .easyDrawer legend{font-size:22px;font-weight:650;margin-bottom:13px}
+.easyUI .easyChoices{display:grid;gap:9px}
+.easyUI .easyChoices button{padding:13px;background:var(--easy-alt);border:2px solid var(--easy-line);color:var(--easy-ink);text-align:left;min-height:54px!important}
+.easyUI .easyChoices button[aria-pressed=true]{border-color:var(--easy-primary);background:var(--easy-active);color:var(--easy-active-ink)}
+.easyUI .easyChoices button[aria-pressed=true]:after{content:' ✓';float:right;font-weight:750}
+.easyUI .modelAnnotation{font-size:var(--ui-size,16px)!important;color:#122436;background:#fff;border:2px solid #526a85;max-width:220px;line-height:1.45}
+.easyUI #easyReaderBar{grid-area:1 / 1;display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 14px;background:var(--easy-alt);border-bottom:1px solid var(--easy-line);z-index:32}
+.easyUI #easyReaderBar button{padding:10px 14px;border:2px solid var(--easy-line);background:var(--easy-surface);color:var(--easy-ink);flex:1}
+.easyUI #easySpeechStatus{font-size:var(--ui-size,16px);width:100%;color:var(--easy-muted)}
+.easyUI #easySpeechStatus:empty{display:none}
+.easyUI.easyReading #main{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr)!important}
+.easyUI.easyReading #stage{grid-area:2 / 1;visibility:hidden}
+.easyUI.easyReading #viewToggle,.easyUI.easyReading #dockRestore{display:none!important}
+.easyUI.easyReading #main>:is(#panel,#coachCard,#engineLab){grid-area:2 / 1!important;z-index:30;border-left:0;border-top:0}
+.easyUI.easyReading[data-reading-kind=part] #partQuickTools{display:flex!important;padding:10px 16px}
+.easyUI.easyReading #partQuickTools button{background:var(--easy-alt);color:var(--easy-ink);border:1px solid var(--easy-line);padding:10px}
+.easyUI.easyReading #inspectPart{display:none}
+.easyUI.easyReading #easyReadPart,.easyUI.easyReading #showOnModelBtn{display:none}
+.easyUI.easyReading #studyBtn{display:grid;place-items:center;min-height:54px;padding:12px;grid-column:1 / -1}
+.easyUI.easyReading #panelScroll{padding:10px 22px 30px}
+.easyUI.easyReading .easyTopicHeading{display:block!important;font-size:26px;line-height:1.4;color:var(--easy-ink);margin:24px 0 14px}
+.easyUI.easyReading .tabpane{display:block!important}
+.easyUI.easyReading .partSources{border-color:var(--easy-line)}
+.easyUI.easyReading .easyCoachRead{display:none}
+@media(max-width:1150px){.easyUI #headerSearch{display:none}}
+@media(max-width:760px){
+ .easyUI #topbar{gap:6px;padding:6px 9px;height:70px}
+ .easyUI #brandHome{gap:5px;margin-right:auto}
+ .easyUI #brandHome strong{font-size:16px!important;letter-spacing:0!important}
+ .easyUI #brandHome .brandMark{width:29px;height:29px;font-size:21px}
+ .easyUI #brandHome small{font-size:13px!important}
+ .easyUI .learnButton,.easyUI .easyHeaderButton{padding:8px 9px;font-size:16px!important}
+ .easyUI .learnButton svg{display:none}
+ .easyUI #easyHelp{margin-left:0}
+ .easyUI #viewToggle{height:calc(86px + env(safe-area-inset-bottom));padding:5px 5px calc(5px + env(safe-area-inset-bottom));gap:2px}
+ .easyUI #viewToggle button{font-size:16px!important;min-height:70px!important;padding:5px 1px}
+ .easyUI .utilityDrawer{width:auto;left:6px;right:6px;top:7px;bottom:calc(7px + env(safe-area-inset-bottom));height:auto;max-height:none;max-width:none;border-radius:13px}
+ .easyUI .drawerHead{padding:15px 14px 12px;margin-bottom:12px}
+ .easyUI .drawerHead:before{display:none}
+ .easyUI .drawerScroll{padding:0 16px 22px}
+ .easyUI .drawerDescription{padding-left:16px;padding-right:16px}
+ .easyUI #viewportHeader{padding:7px 10px;min-height:62px}
+ .easyUI #viewportHeader #sceneTitle{font-size:19px!important}
+ .easyUI #viewportHeader #sceneActions button{padding:7px 10px;min-width:0}
+ .easyUI #workspaceToolbar{gap:4px;padding:6px}
+ .easyUI #workspaceToolbar #quickDock button,.easyUI #workspaceToolbar #zoomCtl button{font-size:16px!important}
+ .easyUI #homeScreen{padding:22px 17px;gap:22px}
+ .easyUI .homeCopy h1{font-size:28px!important}
+ .easyUI .homeCopy p{display:block}
+ .easyUI .homeExplore,.easyUI .homeRoute{padding:17px}
+ .easyUI .homeExplore strong,.easyUI .homeRoute>strong{font-size:22px!important}
+ .easyUI #panelActions{padding:9px 10px}
+ .easyUI #panelHead{padding:11px 12px}
+ .easyUI #panelName{font-size:22px!important}
+ .easyUI #panelClose{min-width:76px;padding:8px 9px}
+ .easyUI #panelScroll{padding:14px}
+ .easyUI #coachCard .coachHead{padding:11px 12px}
+ .easyUI .coachHeadActions button{font-size:var(--ui-size,16px)!important}
+ .easyUI .enginePanelHeading{padding:11px 12px}
+ .easyUI .enginePanelHeading h3{font-size:22px!important}
+ .easyUI #engineCollapse{font-size:16px!important;padding:8px 10px;min-width:92px}
+ .easyUI #engineLab .engineLabHead,.easyUI #engineLab .engineLabHead b{font-size:16px}
+ .easyUI #realControls{grid-template-columns:1fr}
+ .easyUI .profileTable{grid-template-columns:1fr}
+ .easyUI .profileTable dt{font-weight:650;padding-bottom:2px;border:0}
+ .easyUI .profileTable dd{padding-top:0;margin-bottom:10px}
+ .easyUI .systemIcon{display:none}
+ .easyUI .pathChapter{gap:10px;padding:15px 11px}
+ .easyUI .chapterNumber{font-size:18px;width:32px;height:32px}
+ .easyUI .pathChapter>b{font-size:16px!important}
+ .easyUI .courseTile{padding:15px 12px}
+ .easyUI .tileIcon{display:none}
+ .easyUI .sourceCard{padding:15px}
+}
+@media(max-width:370px){.easyUI #brandHome .brandMark{display:none}.easyUI #topbar{gap:5px}.easyUI .learnButton,.easyUI .easyHeaderButton{padding:8px}.easyUI #workspaceToolbar #quickDock button,.easyUI #workspaceToolbar #zoomCtl button{font-size:16px!important}}
+.easyUI[data-easy-size=large] #topbar,.easyUI[data-easy-size=largest] #topbar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));height:auto;min-height:72px}
+.easyUI[data-easy-size=large] #brandHome,.easyUI[data-easy-size=largest] #brandHome{margin:0;justify-content:center}
+.easyUI[data-easy-size=large] #easyHelp,.easyUI[data-easy-size=largest] #easyHelp{margin:0}
+@media(max-width:760px){
+ .easyUI[data-easy-size=large] #topbar,.easyUI[data-easy-size=largest] #topbar{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:7px}
+ .easyUI[data-easy-size=large] #topbar button,.easyUI[data-easy-size=largest] #topbar button{font-size:var(--ui-size)!important;width:100%;margin:0}
+ .easyUI[data-easy-size=large] #viewToggle,.easyUI[data-easy-size=largest] #viewToggle{grid-template-columns:repeat(3,minmax(0,1fr));height:auto;min-height:150px}
+ .easyUI[data-easy-size=large] #viewToggle button,.easyUI[data-easy-size=largest] #viewToggle button{font-size:var(--ui-size)!important}
+ .easyUI[data-easy-size=large] #workspaceToolbar,.easyUI[data-easy-size=largest] #workspaceToolbar{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .easyUI[data-easy-size=large] #workspaceToolbar button,.easyUI[data-easy-size=largest] #workspaceToolbar button{flex-direction:row!important;font-size:var(--ui-size)!important;gap:10px!important}
+}
+
+@media(max-width:760px){
+ html.easyPageScroll{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
+ html.easyPageScroll body.easyUI{height:auto;min-height:100%;overflow:visible}
+ html.easyPageScroll .easyUI #app{position:relative;inset:auto;min-height:100dvh;height:auto}
+ html.easyPageScroll .easyUI #main{height:680px;min-height:680px;flex:none}
+ html.easyPageScroll .easyUI.easyReading #main{height:max(680px,80dvh)}
+}
+
+.easyUI .easySpeedCaption{flex:1 0 100%;margin:4px 0 0;font-size:var(--ui-size,16px);font-weight:600;color:var(--easy-ink)}
+.easyUI #engineSpeedButtons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%}
+.easyUI #engineSpeedButtons button{min-width:0;white-space:normal;padding:8px 7px}
+.easyUI .enginePlayback #engineTogglePlay{width:100%;flex-basis:100%}
+.easyUI #modelLoading{background:var(--easy-surface);color:var(--easy-ink);gap:18px}
+.easyUI #modelLoading:before{border-color:var(--easy-line);border-top-color:var(--easy-primary)}
+.easyUI #modelLoading b{font-size:26px;line-height:1.3;color:var(--easy-ink)}
+.easyUI #loadStage{font-size:var(--read-size,18px);line-height:1.6;color:var(--easy-ink)}
+.easyUI #loadDetail{font-size:var(--ui-size,16px);line-height:1.6;color:var(--easy-muted)}
+.easyUI #browserLink{font-size:var(--read-size,18px);color:var(--easy-primary);text-decoration:underline}
+.easyUI #retryLoad{padding:13px 20px;background:var(--easy-primary);color:var(--easy-primary-ink)}
+.easyUI .resultScore,.easyUI .pathOverview>strong{color:var(--easy-primary);font-size:48px;line-height:1.3}
+.easyUI .pathOverview strong small{font-size:var(--read-size,18px);color:var(--easy-muted)}
+.easyUI .chapterNumber{background:var(--easy-surface);color:var(--easy-ink);border-color:var(--easy-line)}
+.easyUI .chapterNumber.complete{background:#d8efdf;color:#113b21;border-color:#166033}
+.easyUI .videoLink{background:var(--easy-alt);border:1px solid var(--easy-line);padding:13px}
+
+.easyUI #topbar{position:sticky;top:0}
+.easyUI[data-easy-size=large] #workspaceToolbar #quickDock button,.easyUI[data-easy-size=large] #workspaceToolbar #zoomCtl button,.easyUI[data-easy-size=largest] #workspaceToolbar #quickDock button,.easyUI[data-easy-size=largest] #workspaceToolbar #zoomCtl button{font-size:var(--ui-size)!important}
